@@ -1,0 +1,7 @@
+[sshd]
+enabled = true
+port    = ssh
+logpath = /var/log/auth.log
+bantime = 6h
+findtime = 10m
+maxretry = 3
