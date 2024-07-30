@@ -16,6 +16,30 @@ maxretry = 3
 
 Bu yapılandırma, belirli bir süre içinde (findtime) 3'ten fazla başarısız giriş denemesi (maxretry) olan IP adreslerini 6 saat boyunca (bantime) yasaklayacaktır.
 
+### Fail2ban Restart
+
+```
+sudo systemctl restart fail2ban
+```
+
+### Test
+
+Terminale aşağıdaki kodu yazarak SSH jailimizin hangi IP leri banladığını görüntüleyebilirsiniz
+
+```
+root@ubuntu:~# fail2ban-client status sshd
+
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- File list:        /var/log/auth.log
+`- Actions
+   |- Currently banned: 28
+   |- Total banned:     28
+   `- Banned IP list:   103.142.87.177 103.152.18.138 103.163.119.106 103.36.84.107 104.168.96.248 114.218.66.207 119.18.55.67 125.142.39.13 128.199.117.9 14.29.142.199 154.221.22.77 165.232.136.32 167.114.96.239 167.99.70.85 185.28.154.221 190.167.237.191 195.154.179.50 202.125.94.146 210.91.154.187 213.194.140.33 4.223.102.236 43.133.54.108 45.180.136.12 5.11.145.151 61.72.55.130 80.94.95.81 85.209.11.254 89.208.105.254
+```
+
 
 ## SSH Portunu Değiştirmek
 
